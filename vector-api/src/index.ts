@@ -2,6 +2,7 @@ import { Index } from '@upstash/vector'
 import { Hono } from 'hono'
 import { env } from 'hono/adapter'
 import { cors } from 'hono/cors'
+import { handle } from '@hono/node-server/vercel'
 import { RecursiveCharacterTextSplitter } from 'langchain/text_splitter'
 
 const semanticSplitter = new RecursiveCharacterTextSplitter({
@@ -144,4 +145,4 @@ async function splitTextIntoSemantics(text: string): Promise<string[]> {
   return chunks
 }
 
-export default app
+export default handle(app)
