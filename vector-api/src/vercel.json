@@ -1,0 +1,15 @@
+{
+  "devCommand": "npm run index",
+  "builds": [
+    {
+      "src": "idnex.ts",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "index.ts"
+    }
+  ]
+}
